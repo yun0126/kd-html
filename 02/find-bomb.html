@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  th{
+    width:100px;
+    height:100px;
+    color:chocolate;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <td colspan ="3" align="center"><button onclick="start(this)">시작</button></td>
+    </tr>
+    <tr>
+      <th onclick="check(1)">1</th>
+      <th onclick="check(2)">2</th>
+      <th onclick="check(3)">3</th>
+    </tr>
+    <tr>
+      <th onclick="check(4)">4</th>
+      <th onclick="check(5)">5</th>
+      <th onclick="check(6)">6</th>
+    </tr>
+    <tr>
+      <th onclick="check(7)">7</th>
+      <th onclick="check(8)">8</th>
+      <th onclick="check(9)">9</th>
+    </tr>
+  </table>
+  <script>
+    let rNum =0;
+    function  start(obj){
+    rNum = Math.floor(Math.random()*9) + 1;
+    console.log(rNum);
+    obj.style.display='none';
+    }
+    let cnt = 0;
+    function check(num) {
+      if(rNum==0) {
+        alert('게임을 시작해주세여.');
+        return false;
+      }
+      cnt++;
+if(rNum == num) {
+  alert('축하합니다.' + cnt + '번 만에 맞추셨군요.');
+  document.querySelector('button').style.display='';
+  cnt =0;
+  rNum =0;
+}else {
+      alert('당신은 멍청이 입니까?');
+    }
+  }
+  </script>
+</body>
+</html>

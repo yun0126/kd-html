@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1">
+    안녕하세요
+    <button id="btn1">날 클릭해봐</button>
+  </div>
+
+  <script>
+    // let div1 = document.querySelector('#div1');
+    // div1.innerHTML = '바꿨당~';
+    // div1.onclick = function(){
+    //   div1.innerHTML = '하하하하하~~~ 날 클릭하다니';
+    // }
+    let btn1 = document.querySelector('#btn1');
+    let cnt = 0;
+    btn1.onclick = function() {
+      btn1.innerText = (++cnt) + '번';
+      docunent.querySelector('#div2').innerHTML = '<b>안녕</b>';
+      docunent.querySelector('#div3').innerHTML = '<b>안녕</b>';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1"></div>
+  <table border="1">
+    <thead></thead>
+  </table>
+  <script>
+    let html = '';
+    let html2 = '';
+    for(let i=1;i<=9;i++){
+      html += i + '<br>';
+      for(let j=1;j<=3; j++) {
+        html2 += '<td>'+i+'</td>';
+      }
+      html2 += '<tr></td>'
+    //   if(i % 3 ==1){
+    //     html2 += '<tr>';
+    // }
+    // html2 +='<td>' + i + "</td>";
+    // if(i%3 == 0) {
+    //   html += '</tr>';
+    // }
+  }
+    document.querySelector('#div1').innerHTML = html;
+    document.querySelector('thead').innerHTML = html2;
+  </script>
+  
+</body>
+</html>

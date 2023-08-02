@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function generateTable(){
+     let max = parseInt(document.querySelector('#floor').value);
+     let html = '<table border="1">';
+     for(let i=1; i<=max; i++) {
+      html += '<tr>';
+      for(let j=1; j<=max; j++) {
+          html += '<td>' + i + ' * ' + j +' = ' + i * j + '</td>' + '<br>';
+          }
+      html += '</tr>';
+     }
+     html +='</table>';
+     document.querySelector('#div1').innerHTML = html;
+    }
+  </script>
+  <input type="number" max="100" min="1" id="floor">
+  <button onclick="generateTable()">테이블 생성</button>
+  <div id="div1"> </div>
+</body>
+</html>
