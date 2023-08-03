@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="clock"></div>
+  <input type="text" id="timer" placeholder="알람을 초단위로 입력해주세요.">
+  <button onclick="startTimer(this)">시작</button>
+  <div style="display:block">
+  <audio controls src="/bgm/ring.wav" id="arlam"></audio>
+  </div>
+  <script>
+    function displayClock(){
+      const date = new Date();
+      document.querySelector('#clock').innerHTML = date;
+    }
+    setInterval(displayClock,1000);
+    function startTimer(btn){
+     if(btn.innerText==='시작') {
+      const timer = parseInt(document.querySelector('#timer').value) * 1000;
+      setTimeout(function(){
+        document.querySelector('#arlam').play();
+        btn.innerText = '알람끄기';
+      },timer);
+     } else{
+      document.querySelector('#arlam').pause();
+      document.querySelector('#arlam').currentTime = 0;
+        btn.innerText = '시작';
+     }
+    }
+
+  </script>
+</body>
+</html>

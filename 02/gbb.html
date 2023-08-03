@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    input[type="image"], img{
+      width: 150px;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div>  <input type="image" onclick="match('가위')" src="/img/0.png">
+  <input type="image" onclick="match('바위')" src="/img/1.png">
+  <input type="image" onclick="match('보')" src="/img/2.png">
+</div>
+<div>
+  <img src="" id="comImg">
+</div>
+  <div id="result"></div>
+  <script>
+    const values = ['가위', '바위', '보'];
+    const result = document.querySelector('#result');
+    let win = 0;
+    let lose = 0;
+    let tie =0;
+    function match(v) {
+      const comIdx = Math.floor(Math.random()*3);
+      document.querySelector('#comImg').src='/img/' + comIdx + '.png';
+      const myIdx = values.indexOf(v);
+      if(comIdx===myIdx) {
+        tie++;
+      }
+      else if((comIdx+1)%3===myIdx){
+        win++;
+      }else{
+      lose++;
+      }
+      document.querySelector('#result').innerHTML = `${win}승 ${lose}패 ${tie}무`;
+    }
+  </script>
+</body>
+</html>

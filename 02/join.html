@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form onsubmit="return check()">
+    <input type="text" id="name" placeholder="이름"><br>
+    <input type="text" id="id" placeholder="아이디"><br>
+    <input type="password" id="pwd" placeholder="비밀번호"><br>
+    <label for="m"> 남자</label>
+    <input type ="radio" id="m" name="trans">
+    <label for="m"> 여자</label>
+    <input type ="radio" id="f" name="trans"><br>
+    <input type="text" id="pNum" placeholder="전화번호"><br>
+    <button>가입 완료</button>
+  </form>
+  <script>
+    function check(){
+      const id = document.querySelector('#id');
+      const pwd = document.querySelector('#pwd');
+      const pNum = document.querySelector('#pNum');
+      const gender = document.querySelector('input[name=gender]:checked');
+      if(id.value.trim().length<4) {
+        alert('아이디를 4글자 이상 입력하세요');
+        id.value = '';
+        id.focus();
+        return false;
+      }
+      if(pwd.value.trim().length<4){
+        alert('비밀번호를 4글자 이상 입력하세요');
+        pwd.value = '';
+        pwd.focus();
+        return false;
+      }
+      if(pNum.value.trim().length !== 11) {
+        alert('전화번호 11자리를 입력해주세요');
+        pNum.value = '';
+        pNum.focus();
+        return false;
+      } 
+      if(gender===null) {
+        alert('남여 선택을 해주세요')
+        return false;
+      }
+             
+      return true;
+    }
+  </script>
+
+</body>
+</html>l
