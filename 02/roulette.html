@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    td{
+      width: 50px;
+      height: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="bet" placeholder="배팅금액"><br>
+  <input type="text" id="num" placeholder="숫자"><br>
+  <button onclick="startRoulette()">가자 일확천금!</button>
+  <table border="1">
+  </table>
+  <script>
+    let redIdx = -1;
+    let blueIdx = -1;
+    let greenIdx = -1;
+    function startRoulette(){
+      const tds = document.querySelectorAll('td');
+      const interval = setInterval(function(){
+        for(let i=0; i<tds.length; i++) {
+          tds[i].style='background-color:white';
+        }
+        redIdx = Math.floor(Math.random() * tds.length);
+        tds[redIdx].style='background-color:red';
+        
+        blueIdx = Math.floor(Math.random() * tds.length);
+        tds[blueIdx].style='background-color:blue';
+
+        greenIdx = Math.floor(Math.random() * tds.length);
+        tds[greenIdx].style='background-color:green';
+      },200);
+      setTimeout(function(){
+        alert(`빨강번호:${redIdx}, 파랑번호:${blueIdx}, 녹색번호:${greenIdx}`);
+        clearInterval(interval);
+      },3000);
+    }
+     let html = ''; 
+    for(let i=1; i<=50; i++) {
+      html += '<td>'+i+'</td>';
+        if(i%10===0){
+          html += '<tr></tr>'    
+        }
+      }
+    document.querySelector('table').innerHTML = html;
+  </script>
+</body>
+</html>
